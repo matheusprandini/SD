@@ -1,0 +1,50 @@
+-------------------Trabalho 1--------------------
+
+*****
+A pasta Trabalho contém outras quatro pastas:
+
+- Arquivo Thrift: possui o arquivo "grafo.thrift";
+
+- Classes Geradas: possui as classes geradas pela compilação do arquivo "grafo.thrift";
+
+- Classes Implementadas: possui as classes Servidor, Handler e Cliente, implementadas para
+a realização deste trabalho;
+
+- Dados Grafo: possui os arquivos "vertices.txt" e "arestas.txt", os quais armazenam os dados dos vétices e das arestas do grafo.
+*****
+
+***
+Servidor: Inicializa o Grafo;
+
+Handler: Implementa as operações que podem ser realizadas no Grafo;
+
+Cliente: Implementa um Menu para permitir interação do usuário com o Grafo.
+***
+
+-----
+
+O MultiThreading é implementado no Servidor pela classe "ThreadPoolServer".
+
+-----
+
+O armazenamento de dados é dado da seguinte maneira:
+
+- Os vértices do grafo são gravados em um arquivo chamado "vertices.txt";
+
+- As arestas do grafo são gravadas em um arquivo chamado "arestas.txt";
+
+A ordem das informações no arquivo segue a ordem definida no arquivo "grafo.thrift".
+
+Sempre que o Servidor é inicializado, esses arquivos são lidos de modo a carregar o conteúdo
+no grafo. Caso os arquivos estejam vazios, as listas de vértices e de arestas do grafo são inicializadas como sendo vazias. Os arquivos dispostos na pasta "Dados Grafo" exemplificam como é a escrita de dados do grafo, no arquivo "vertices.txt" é encontrada dois vértices, enquanto no arquivo "aresta.txt" é encontrada uma aresta.
+
+-----
+
+O controle de concorrência é implementado da seguinte forma:
+
+- Sempre que um usuário realiza uma operação com um determinado vértice, este é bloqueado para todos
+os demais clientes até que tal operação seja finalizada.
+
+- Sempre que um usuário realiza uma operação com uma determinada aresta, esta é bloqueada, além dos vértices que a compõem, para todos os demais clientes até que tal operação seja finalizada.
+
+-----
