@@ -1,0 +1,24 @@
+1 - Criar zNode: create /teste teste
+
+2 - Criar três nodos sequenciais debaixo de /teste: 
+
+create -s /teste/filho1 /filho1
+create -s /teste/filho2 /filho2
+create -s /teste/filho3 /filho3
+
+3 - Criar zNode /teste2: create /teste2 teste2
+
+4 - Criar zNode Efêmero: create -e /teste3 teste3
+
+5 - Conectar outro cliente: abrir um novo terminal, entrar na pasta /zookeeper-3.4.10 e entrar com o comando "./bin/zkCli.sh -server 127.0.0.1:2181" (sem aspas)
+
+6 - Colocar um watch no zNode /teste2: get /teste2 true ou get /teste2 1
+
+7 - Após mudança em /teste2: mensagem no Cliente 2
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/teste2
+
+
+
